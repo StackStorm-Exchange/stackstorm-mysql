@@ -1,4 +1,4 @@
-# import MySQLdb
+import MySQLdb
 
 from lib.base import MySQLBaseAction
 
@@ -14,11 +14,19 @@ class MySQLInsertAction(MySQLBaseAction):
                                        passwd=passwd,
                                        db=db)
 
-        self.insert(table, data)
+        return self.insert(table, data)
 
     def insert(self, table, data):
-        columns = self._list_to_string(data.keys())
-        values = self._list_to_string(data.values())
+        columns = self._list_to_string(data.keys(), quotes=False).lstrip(',')
+        values = self._list_to_string(data.values()).lstrip(',')
 
         query = "INSERT INTO %s (%s) VALUES (%s)" % (table, columns, values)
-        return query
+        c = self.db.cursor()
+        try:
+            c.execute(query)
+            count = c.rowcount
+            self.db.commit()
+            return count
+        except MySQLdb.Error, e:
+            print str(e)
+            return False

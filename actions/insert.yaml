@@ -21,3 +21,11 @@
       type: "string"
       description: "Database name if not specified in config"
       default: null
+    table:
+      type: "string"
+      description: ""
+      required: true
+    data:
+      type: "object"
+      description: ""
+      required: true
