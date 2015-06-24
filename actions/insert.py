@@ -17,8 +17,8 @@ class MySQLInsertAction(MySQLBaseAction):
         return self.insert(table, data)
 
     def insert(self, table, data):
-        columns = self._list_to_string(data.keys(), quotes=False).lstrip(',')
-        values = self._list_to_string(data.values()).lstrip(',')
+        columns = self._list_to_string(data.keys(), quotes=False)
+        values = self._list_to_string(data.values())
 
         query = "INSERT INTO %s (%s) VALUES (%s)" % (table, columns, values)
         c = self.db.cursor()
