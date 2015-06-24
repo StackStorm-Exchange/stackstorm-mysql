@@ -34,8 +34,10 @@ class MySQLBaseAction(Action):
     def _list_to_string(self, data, quotes=True):
         output = ""
         if quotes:
-            output = ','.join(["'{}'".format(MySQLdb.escape_string(str(item))) for item in data])
+            output = ','.join(["'{}'".format(MySQLdb.escape_string(str(item)))
+                              for item in data])
         else:
-            output = ','.join([MySQLdb.escape_string(str(item)) for item in data])
+            output = ','.join([MySQLdb.escape_string(str(item))
+                              for item in data])
 
         return output.lstrip(',')
