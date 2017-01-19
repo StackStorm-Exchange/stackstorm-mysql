@@ -1,7 +1,7 @@
 ---
 name : mysql
 description : Mysql integration pack
-version : 0.2.0
+version : 0.3.0
 author : st2-dev
 email : info@stackstorm.com
 contributors:
