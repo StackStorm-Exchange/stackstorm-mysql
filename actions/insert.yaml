@@ -5,6 +5,10 @@
   enabled: true
   entry_point: "insert.py"
   parameters:
+    connection:
+      type: "string"
+      description: "Connection entry in configs/mysql.yaml to pull connection info from"
+      default: null
     host:
       type: "string"
       description: "Database host if not specified in config"

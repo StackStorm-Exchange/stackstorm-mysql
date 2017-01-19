@@ -1,4 +1,3 @@
-
 import MySQLdb
 import MySQLdb.cursors
 
@@ -15,12 +14,12 @@ class MySQLBaseAction(Action):
         super(MySQLBaseAction, self).__init__(config=config)
         self.config = config
 
-    def config_conn(self, db):
-        self.db_config = self.config.get(db, False)
+    def config_conn(self, connection):
+        self.db_config = self.config.get(connection, False)
         return self.manual_conn(host=self.db_config.get('host', None),
                                 user=self.db_config.get('user', None),
                                 passwd=self.db_config.get('pass', None),
-                                db=db,
+                                db=self.db_config.get('db', None),
                                 cursorclass=MySQLdb.cursors.DictCursor)
 
     def manual_conn(self, host, user, passwd, db,
