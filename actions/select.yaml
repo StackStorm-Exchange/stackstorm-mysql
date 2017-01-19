@@ -1,0 +1,35 @@
+---
+  name: "select"
+  runner_type: "run-python"
+  description: "Select data from a MySQL database"
+  enabled: true
+  entry_point: "select.py"
+  parameters:
+    connection:
+      type: "string"
+      description: "Connection entry in configs/mysql.yaml to pull connection info from"
+      default: null
+    host:
+      type: "string"
+      description: "Database host if not specified in config"
+      default: null
+    user:
+      type: "string"
+      description: "Database user if not specified in config"
+      default: null
+    passwd:
+      type: "string"
+      description: "Database password if not specified in config"
+      default: null
+    db:
+      type: "string"
+      description: "Database name if not specified in config"
+      default: null
+    query:
+      type: "string"
+      description: "The select query to execute"
+      required: true
+    data:
+      type: "array"
+      description: "Any values to be interpolated into the query"
+      required: false

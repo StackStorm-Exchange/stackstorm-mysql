@@ -1,5 +1,6 @@
 import MySQLdb
 import MySQLdb.cursors
+from datetime import datetime
 
 from st2actions.runners.pythonrunner import Action
 
@@ -40,3 +41,18 @@ class MySQLBaseAction(Action):
                               for item in data])
 
         return output.lstrip(',')
+
+
+    def _format_results(self, cursor):
+        if cursor.rowcount < 1:
+            return None
+        rows = []
+        for row in cursor.fetchall():
+            d = {}
+            for k, v in row.iteritems():
+                if isinstance(v, datetime):
+                    d[k] = str(v)
+                else:
+                    d[k] = v
+            rows.append(d)
+        return rows
