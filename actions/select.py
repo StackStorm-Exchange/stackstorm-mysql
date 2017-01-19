@@ -17,8 +17,10 @@ class MySQLSelectAction(MySQLBaseAction):
         return self.select(query, data)
 
     def select(self, query, data):
-        values = self._list_to_string(data)
-        q = query.format(values)
+        q = query
+        if data:
+            values = self._list_to_string(data)
+            q = q.format(values)
         self.logger.debug("Generated query: %s" % q)
 
         c = self.db.cursor()
