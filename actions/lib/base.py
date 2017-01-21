@@ -1,6 +1,6 @@
-
 import MySQLdb
 import MySQLdb.cursors
+from datetime import datetime
 
 from st2actions.runners.pythonrunner import Action
 
@@ -15,12 +15,12 @@ class MySQLBaseAction(Action):
         super(MySQLBaseAction, self).__init__(config=config)
         self.config = config
 
-    def config_conn(self, db):
-        self.db_config = self.config.get(db, False)
+    def config_conn(self, connection):
+        self.db_config = self.config.get(connection, False)
         return self.manual_conn(host=self.db_config.get('host', None),
                                 user=self.db_config.get('user', None),
                                 passwd=self.db_config.get('pass', None),
-                                db=db,
+                                db=self.db_config.get('db', None),
                                 cursorclass=MySQLdb.cursors.DictCursor)
 
     def manual_conn(self, host, user, passwd, db,
@@ -41,3 +41,18 @@ class MySQLBaseAction(Action):
                               for item in data])
 
         return output.lstrip(',')
+
+
+    def _format_results(self, cursor):
+        if cursor.rowcount < 1:
+            return None
+        rows = []
+        for row in cursor.fetchall():
+            d = {}
+            for k, v in row.iteritems():
+                if isinstance(v, datetime):
+                    d[k] = str(v)
+                else:
+                    d[k] = v
+            rows.append(d)
+        return rows

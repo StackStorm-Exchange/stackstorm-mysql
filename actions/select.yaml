@@ -1,9 +1,9 @@
 ---
-  name: "insert"
+  name: "select"
   runner_type: "run-python"
-  description: "Insert data into a MySQL database"
+  description: "Select data from a MySQL database"
   enabled: true
-  entry_point: "insert.py"
+  entry_point: "select.py"
   parameters:
     connection:
       type: "string"
@@ -25,11 +25,16 @@
       type: "string"
       description: "Database name if not specified in config"
       default: null
-    table:
+    query:
       type: "string"
-      description: ""
+      description: "The select query to execute"
       required: true
     data:
-      type: "object"
-      description: ""
-      required: true
+      type: "array"
+      description: "Any values to be interpolated into the query"
+      required: false
+    key:
+      type: "string"
+      description: "The name of a key in the Datastore to store the result"
+      required: false
+

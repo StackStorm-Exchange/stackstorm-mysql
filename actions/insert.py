@@ -5,9 +5,9 @@ from lib.base import MySQLBaseAction
 
 class MySQLInsertAction(MySQLBaseAction):
 
-    def run(self, table, data, host, user, passwd, db):
-        if not host or not user:
-            self.db = self.config_conn(db=db)
+    def run(self, connection, table, data, host, user, passwd, db):
+        if connection:
+            self.db = self.config_conn(connection=connection)
         else:
             self.db = self.manual_conn(host=host,
                                        user=user,
