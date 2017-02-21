@@ -27,6 +27,6 @@ class MySQLInsertAction(MySQLBaseAction):
             count = c.rowcount
             self.db.commit()
             return count
-        except MySQLdb.Error, e:
+        except MySQLdb.Error, e:  # pylint: disable=no-member
             print str(e)
             return False

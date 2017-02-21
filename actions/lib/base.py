@@ -31,17 +31,19 @@ class MySQLBaseAction(Action):
                                db=db,
                                cursorclass=cursorclass)
 
+    def _escape_string(self, item):
+        return MySQLdb.escape_string(unicode(item).encode('utf-8'))  # pylint: disable=no-member
+
     def _list_to_string(self, data, quotes=True):
         output = ""
         if quotes:
-            output = ','.join(["'{}'".format(MySQLdb.escape_string(unicode(item).encode('utf-8')))
+            output = ','.join(["'{}'".format(self._escape_string(item))
                               for item in data])
         else:
-            output = ','.join([MySQLdb.escape_string(unicode(item).encode('utf-8'))
+            output = ','.join([self._escape_string(item)
                               for item in data])
 
         return output.lstrip(',')
-
 
     def _format_results(self, cursor):
         if cursor.rowcount < 1:

@@ -29,12 +29,12 @@ class MySQLSelectAction(MySQLBaseAction):
         try:
             c.execute(q)
             output = self._format_results(c)
-            if key != None:
+            if key is not None:
                 client = Client(base_url='http://localhost')
                 client.keys.update(KeyValuePair(name=key, value=str(output)))
                 return key
             else:
                 return output
-        except MySQLdb.Error, e:
+        except MySQLdb.Error, e:  # pylint: disable=no-member
             print str(e)
             return False
