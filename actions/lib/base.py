@@ -16,7 +16,7 @@ class MySQLBaseAction(Action):
         self.config = config
 
     def config_conn(self, connection):
-        self.db_config = self.config.get(connection, False)
+        self.db_config = self.config.get('connections', False)[connection]
         return self.manual_conn(host=self.db_config.get('host', None),
                                 user=self.db_config.get('user', None),
                                 passwd=self.db_config.get('pass', None),
