@@ -23,7 +23,6 @@ class MySQLSelectAction(MySQLBaseAction):
         if data:
             values = self._list_to_string(data)
             q = q.format(values)
-        self.logger.debug("Generated query: %s" % q)
 
         c = self.db.cursor()
         try:

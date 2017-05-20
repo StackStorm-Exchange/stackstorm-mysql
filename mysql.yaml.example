@@ -1,5 +1,5 @@
 ---
-connnections:
+connections:
   community:
     host: "hostname"
     user: "user"
