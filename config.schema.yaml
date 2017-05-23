@@ -1,0 +1,29 @@
+---
+connections:
+  description: "Database connection parameters"
+  type: "object"
+  required: false
+  items:
+    type: "object"
+    required: true
+    properties:
+      host:
+        description: "Database hostname"
+        type: "string"
+        secret: false
+        required: true
+      user:
+        description: "Username for DB"
+        type: "string"
+        secret: false
+        required: true
+      pass:
+        description: "Password used to authenticate."
+        type: "string"
+        secret: true
+        required: true
+      db:
+        description: "Name of database."
+        type: "string"
+        secret: false
+        required: true

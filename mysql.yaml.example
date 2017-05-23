@@ -1,0 +1,12 @@
+---
+connections:
+  community:
+    host: "hostname"
+    user: "user"
+    pass: "password"
+    db: "database"
+  exchange:
+    host: "mydb.local"
+    user: "bob"
+    pass: "PassW0rd"
+    db: "st2"
