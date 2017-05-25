@@ -28,5 +28,4 @@ class MySQLInsertAction(MySQLBaseAction):
             self.db.commit()
             return count
         except MySQLdb.Error, e:  # pylint: disable=no-member
-            print str(e)
-            return False
+            raise Exception(e)
