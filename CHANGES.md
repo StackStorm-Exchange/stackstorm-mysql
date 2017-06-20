@@ -1,5 +1,9 @@
 # Changelog
 
+# 0.5.0
+
+- Updated action `runner_type` from `run-python` to `python-script`
+
 ## 0.4.1
 
 - Raise Exception if MySQL returns an error
