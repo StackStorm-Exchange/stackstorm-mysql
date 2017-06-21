@@ -1,6 +1,6 @@
 ---
   name: "select"
-  runner_type: "run-python"
+  runner_type: "python-script"
   description: "Select data from a MySQL database"
   enabled: true
   entry_point: "select.py"

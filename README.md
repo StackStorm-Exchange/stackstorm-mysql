@@ -37,6 +37,10 @@ When running actions, you can pass in the name of a connection, e.g.
 Alternatively, when running an action, you can pass in the hostname, db, user, passwd
 parameters.
 
+**Note** : When modifying the configuration in `/opt/stackstorm/configs/` please
+           remember to tell StackStorm to load these new values by running
+           `st2ctl reload --register-configs`
+
 ## Actions
 
 * ``select`` - Run a DB query

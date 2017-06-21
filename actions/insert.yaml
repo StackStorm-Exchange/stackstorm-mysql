@@ -1,6 +1,6 @@
 ---
   name: "insert"
-  runner_type: "run-python"
+  runner_type: "python-script"
   description: "Insert data into a MySQL database"
   enabled: true
   entry_point: "insert.py"
