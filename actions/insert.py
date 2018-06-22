@@ -19,7 +19,6 @@ class MySQLInsertAction(MySQLBaseAction):
     def insert(self, table, data):
         columns = self._list_to_string(data.keys(), quotes=False)
         values = self._list_to_string(data.values())
-        values = values.decode('utf-8')
 
         query = "INSERT INTO {} ({}) VALUES ({})".format(table.encode('utf-8'), columns, values)
         c = self.db.cursor()
