@@ -1,5 +1,9 @@
 # Changelog
 
+# 0.5.2
+
+- Fix Unicode issues with mysql.insert
+
 # 0.5.0
 
 - Updated action `runner_type` from `run-python` to `python-script`
