@@ -2,6 +2,10 @@
 
 Query and Update MySQL
 
+## Pre-Requisites
+
+You must install the `libmysqlclient-dev` system package, e.g. with `sudo apt install libmysqlclient-dev`
+
 ## Configuration
 
 Copy the example configuration in [mysql.yaml.example](./mysql.yaml.example)
