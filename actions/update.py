@@ -2,6 +2,7 @@ import MySQLdb
 
 from lib.base import MySQLBaseAction
 
+
 class MySQLSelectAction(MySQLBaseAction):
 
     def run(self, connection, query, data, host, user, passwd, db):
