@@ -1,9 +1,6 @@
 import MySQLdb
 
 from lib.base import MySQLBaseAction
-from st2client.client import Client
-from st2client.models import KeyValuePair
-
 
 class MySQLSelectAction(MySQLBaseAction):
 
