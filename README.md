@@ -49,3 +49,4 @@ parameters.
 
 * ``select`` - Run a DB query
 * ``insert`` - Insert new entries
+* ``update`` - Update records
