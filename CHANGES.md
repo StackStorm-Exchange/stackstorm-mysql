@@ -1,5 +1,9 @@
 # Changelog
 
+# 0.5.3
+
+- Added mysql.update action
+
 # 0.5.2
 
 - Fix Unicode issues with mysql.insert
