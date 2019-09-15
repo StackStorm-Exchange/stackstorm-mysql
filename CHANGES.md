@@ -1,5 +1,9 @@
 # Changelog
 
+# 0.6.0
+
+- Use mysqlclient package instead of MySQLdb1
+
 # 0.5.2
 
 - Fix Unicode issues with mysql.insert
