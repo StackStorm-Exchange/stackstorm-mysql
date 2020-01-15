@@ -21,6 +21,7 @@
       type: "string"
       description: "Database password if not specified in config"
       default: null
+      secret: true
     db:
       type: "string"
       description: "Database name if not specified in config"
