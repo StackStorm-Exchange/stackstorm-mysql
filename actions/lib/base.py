@@ -8,6 +8,11 @@ __all__ = [
     'MySQLBaseAction'
 ]
 
+try:  # Python 2
+    unicode = unicode
+except NameError:  # Python 3
+    unicode = str
+
 
 class MySQLBaseAction(Action):
 
