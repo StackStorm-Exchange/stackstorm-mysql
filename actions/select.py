@@ -34,5 +34,5 @@ class MySQLSelectAction(MySQLBaseAction):
                 return key
             else:
                 return output
-        except MySQLdb.Error, e:  # pylint: disable=no-member
+        except MySQLdb.Error as e:  # pylint: disable=no-member
             raise Exception(e)
