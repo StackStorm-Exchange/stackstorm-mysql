@@ -1,4 +1,7 @@
 # Changelog
+# 0.6.1
+
+- Password fields are now secrets
 
 # 0.6.0
 
