@@ -1,4 +1,8 @@
 # Changelog
+# 0.6.2
+
+- update iteritems() to be compatible with python 3.6 and backwards compatible with 2.7
+
 # 0.6.1
 
 - Password fields are now secrets

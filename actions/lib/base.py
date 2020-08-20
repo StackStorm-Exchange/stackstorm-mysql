@@ -1,7 +1,8 @@
 import MySQLdb
 import MySQLdb.cursors
-from datetime import datetime
+import six
 
+from datetime import datetime
 from st2common.runners.base_action import Action
 
 __all__ = [
@@ -56,7 +57,7 @@ class MySQLBaseAction(Action):
         rows = []
         for row in cursor.fetchall():
             d = {}
-            for k, v in row.iteritems():
+            for k, v in six.iteritems(row):
                 if isinstance(v, datetime):
                     d[k] = str(v)
                 else:
