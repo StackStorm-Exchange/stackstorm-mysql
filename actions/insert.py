@@ -1,4 +1,5 @@
 import MySQLdb
+import six
 
 from lib.base import MySQLBaseAction
 
@@ -20,7 +21,8 @@ class MySQLInsertAction(MySQLBaseAction):
         columns = self._list_to_string(data.keys(), quotes=False)
         values = self._list_to_string(data.values())
 
-        query = "INSERT INTO {} ({}) VALUES ({})".format(table.encode('utf-8'), columns, values)
+        query = "INSERT INTO {} ({}) VALUES ({})".format(
+            six.ensure_str(table.encode('utf-8')), columns, values)
         c = self.db.cursor()
         try:
             c.execute(query)

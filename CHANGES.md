@@ -1,4 +1,8 @@
 # Changelog
+# 0.6.3
+
+- Addresses #20 - Fixing compatibility for Str/Byte data (Py 2.7 -> 3.x).
+
 # 0.6.2
 
 - update iteritems() to be compatible with python 3.6 and backwards compatible with 2.7
