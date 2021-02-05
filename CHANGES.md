@@ -1,4 +1,8 @@
 # Changelog
+# 1.0.0
+
+* Drop Python 2.7 support
+
 # 0.6.3
 
 - Addresses #20 - Fixing compatibility for Str/Byte data (Py 2.7 -> 3.x).
