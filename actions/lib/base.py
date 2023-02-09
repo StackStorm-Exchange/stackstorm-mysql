@@ -39,7 +39,9 @@ class MySQLBaseAction(Action):
 
     def _escape_string(self, item):
         return six.ensure_str(
-            MySQLdb._mysql.escape_string(unicode(item).encode('utf-8'))) # pylint: disable=no-member
+            MySQLdb._mysql.escape_string(
+                unicode(item).encode('utf-8')
+            ))  # pylint: disable=no-member
 
     def _list_to_string(self, data, quotes=True):
         output = ""
