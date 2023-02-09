@@ -1,4 +1,8 @@
 # Changelog
+# 1.0.1
+
+- Bugfix for escape_string not being a function on MySQLdb but on MySQLdb._mysql
+
 # 1.0.0
 
 * Drop Python 2.7 support
